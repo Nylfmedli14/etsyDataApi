@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Etsy | Public API Project</title>
+        <meta charset="utf-8" name="viewport" content="Capstone project for Thinkful's FEWD course">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link href="main.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+    </head>
+    <body>
+    	<header>
+	    	<nav role="navigation" class="container"> 
+	    		<img src="etsy.png" alt="icon" class="icon">
+	    		<a href="menu.html" class="r-link">Menu</a>
+	    	</nav>
+    	</header>
+      <main role="main">
+        <h1>API Title</h1>
+          <form role="form" action="#" class="js-search-form">
+            <label for="search"></label>
+            <input title="Type query in the search input here and click the search button" id="search" type="text" class="js-query" placeholder="Search Etsy">
+            <input type="image" role="button" class="search-button" src="https://tf-assets-prod.s3.amazonaws.com/tf-curric/WEB-DEV-001/2.4.6_challenge_design_to_code/magnifying-glass.png"
+        alt="Search">
+          </form>
+      	<nav class="pages" role="navigation">
+	      <a class="pages-button prev">
+	         prev
+	      </a>
+	      <span class="pages-display">
+	        1 to 100 of 179
+	      </span>
+	      <a class="pages-button next">
+	        next
+	      </a>
+    	</nav>
+          <h2>Results</h2>
+          <div class="js-search-results" >  
+          </div>
+      </main>
+      <script src="app.js"></script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  	font-family: 'Roboto', sans-serif;
+  	padding: 40px;
+	background: #f4f4f4;
+	font-size: 16px;
+	color: #666;
+}
+
+.container {
+	width: 100%;
+	margin: auto;
+	overflow: auto;
+	background: lightgray;
+	padding: 15px;
+	display: flex;
+}
+
+nav, section {
+	margin-bottom: 30px;
+}
+
+h1, h2, form, .pages {
+	text-align: center;
+}
+
+.search-section .search-jobs {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.search-section .search-field, 
+.search-section .search-button {
+  display: inline-block;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  cursor: pointer; 
+}
+
+.search-section input {
+  /* Must be set due to specificity weirdness of inputs */
+  font-size: 16px; 
+  font-weight: 500;
+  width: 400px;
+  height: 30px;
+  padding: 0 5px 0 8px;
+}
+
+.search-section .search-button {
+  width: 40px;
+  height: 30px;
+  padding: 2px 6px 3px 6px;
+  background-color: white;
+  vertical-align: bottom;
+}
+
+.pages {
+  display: inline-block; /* Tricky, this could start wrapping!  */
+  font-size: 0;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.pages-button, 
+.pages-display {
+  display: inline-block;
+  font-size: 16px;
+  padding: 8px 25px;
+  cursor: pointer; 
+}
+
+.pages-button.prev:before {
+  content:"<";
+}
+
+.pages-button.next:after{
+  content:">";
+}
+
+.r-link {
+  font-size: 18px;
+  padding: 0 6px;
+  color: #666;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+
+}
+
+.icon {
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 25%;
+  vertical-align: middle;
+  margin-bottom: 
+}
+
+.search-button {
+  display: inline-block;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  cursor: pointer; 
+}
+
