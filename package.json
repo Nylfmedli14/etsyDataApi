@@ -1,0 +1,32 @@
+{
+  "name": "etsy-data-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nylfmedli14/etsyDataApi.git"
+  },
+  "author": "Prince Otchere",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nylfmedli14/etsyDataApi/issues"
+  },
+  "homepage": "https://github.com/Nylfmedli14/etsyDataApi#readme",
+  "dependencies": {
+      "jquery": "3.2.1",
+      "jquery-smooth-scroll": "2.2.0",
+      "lazysizes": "4.0.0-rc3",
+      "normalize.css": "7.0.0",
+      "picturefill": "3.0.2",
+      "waypoints": "4.0.1"
+    },
+    "devDependencies": {
+      "autoprefixer": "7.1.2",
+      "gulp": "3.9.1",
+    }
+}
+
