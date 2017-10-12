@@ -19,13 +19,16 @@
 	    	</nav>
     	</header>
       <main role="main">
-        <h1>API Title</h1>
-          <form role="form" action="#" class="js-search-form">
-            <label for="search"></label>
-            <input title="Type query in the search input here and click the search button" id="search" type="text" class="js-query" placeholder="Search Etsy">
-            <input type="image" role="button" class="search-button" src="https://tf-assets-prod.s3.amazonaws.com/tf-curric/WEB-DEV-001/2.4.6_challenge_design_to_code/magnifying-glass.png"
-        alt="Search">
-          </form>
+        <section>
+          <h1>API Title</h1>
+            <form role="form" action="#" class="js-search-form">
+              <label for="search"></label>
+              <input title="Type query in the search input here and click the search button" id="search" type="text" class="js-query" placeholder="Search Etsy">
+              <input type="image" role="button" class="search-button" src="https://tf-assets-prod.s3.amazonaws.com/tf-curric/WEB-DEV-001/2.4.6_challenge_design_to_code/magnifying-glass.png"
+              alt="Search">
+            </form>
+        </section>
+
       	<nav class="pages" role="navigation">
 	      <a class="pages-button prev">
 	         prev
@@ -36,9 +39,12 @@
 	      <a class="pages-button next">
 	        next
 	      </a>
-    	</nav>
+        </nav>
+        <h2>Select Two Items for Price Comparisons</h2>
+        <div id="compare" class="compare">
+        </div>
           <h2>Results</h2>
-          <div class="js-search-results" >  
+          <div id="js-search-results" class="js-search-results">  
           </div>
       </main>
       <script src="app/app.js"></script>
