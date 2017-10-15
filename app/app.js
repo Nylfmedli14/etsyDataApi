@@ -47,9 +47,10 @@ function renderComparison(clickedId) {
   let listing = cachedListings[clickedId];
 
   return `
-    <div>
+    <div class="comparison-listing">
       <a href="${listing.url}">${listing.title}</a>
       <h2>${listing.price}</h2>
+      <button class="remove-button">Remove</button>
     </div>
   `
 
@@ -66,7 +67,7 @@ function displaySearchData(data) {
   console.log(cachedListings);
 }
 
-function watchSubmit() {
+function initialize() {
   $('.js-search-form').submit(event => {
     event.preventDefault();
     // console.log($(event.currentTarget));
@@ -76,14 +77,22 @@ function watchSubmit() {
     searchTarget.val("");
     searchListings(request, displaySearchData);
   });
+
+  $(`#js-search-results`).delegate(".compare-button", "click", function(event) {
+    // console.log(event)
+    const clickButton = $(this)
+    const clickedId = clickButton.data(`listingid`)
+
+    $(`#compare`).append(renderComparison(clickedId)) 
+
+  });
+
+  $(`#compare`).delegate(".remove-button", "click", function(event) {
+    const clickButton = $(this)
+    const comparisonListing = clickButton.closest(".comparison-listing")
+
+    comparisonListing.remove();
+  })
 }
 
-$(`#js-search-results`).delegate(".compare-button", "click", function(event) {
-  // console.log(event)
-  const clickButton = $(this)
-  const clickedId = clickButton.data(`listingid`)
-
-  $(`.compare`).html(renderComparison(clickedId)) 
-
-});
-$(watchSubmit);
+$(initialize);
