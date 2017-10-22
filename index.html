@@ -3,24 +3,23 @@
     <head>
         <title>Etsy | Public API Project</title>
         <meta charset="utf-8" name="description" content="Capstone project for Thinkful's FEWD course">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
-        <link href="styles/main.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link rel="stylesheet" type="text/css" href="styles/float-grid.css">
+        <link href="styles/main.css" rel="stylesheet" type="text/css">
         <script
           src="https://code.jquery.com/jquery-3.2.1.min.js"
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous"></script>
     </head>
     <body>
-    	<header>
-	    	<nav role="navigation" class="container"> 
-	    		<img src="pics/etsy.png" alt="icon" class="icon">
-	    		<a href="menu.html" class="r-link">Menu</a>
-	    	</nav>
+    	<header role="banner">
+	    		<img src="pics/etsy.png" alt="icon">
+          <h1>Etsy Price Comparison API</h1>
     	</header>
       <main role="main">
-        <section>
-          <h1>API Title</h1>
+        <section class="col-12">
             <form role="form" action="#" class="js-search-form">
               <label for="search"></label>
               <input title="Type query in the search input here and click the search button" id="search" type="text" class="js-query" placeholder="Search Etsy">
@@ -29,22 +28,22 @@
             </form>
         </section>
 
-      	<nav class="pages" role="navigation">
-	      <a class="pages-button prev">
-	         prev
-	      </a>
-	      <span class="pages-display">
-	        1 to 100 of 179
-	      </span>
-	      <a class="pages-button next">
-	        next
-	      </a>
+      	<nav class="pages hidden" role="navigation">
+  	      <a class="pages-button prev" id="pages-button-prev">
+  	         Prev
+  	      </a>
+  	      <span id="pages-display" class="pages-display">
+  	        1
+  	      </span>
+  	      <a class="pages-button next" id="pages-button-next">
+  	        Next
+  	      </a>
         </nav>
         <h2>Select Any Items for Price Comparisons</h2>
         <div id="compare" class="compare">
         </div>
           <h2>Results</h2>
-          <div id="js-search-results" class="js-search-results">  
+          <div id="js-search-results" class="js-search-results">
           </div>
       </main>
       <script src="app/app.js"></script>

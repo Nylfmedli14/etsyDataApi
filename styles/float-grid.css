@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive grid*/
+.js-search-results {
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+}
+
+/* float-grid  and half-gutters*/
+.col-4 {
+  float: left;
+  padding-left: 1.04166666%;
+  padding-right: 1.04166666%;
+}
+
+/* Mobile grid */
+.col-4 {
+  margin-bottom: 20px;
+}
+
+/* Non-mobile grid */
+@media only screen and (min-width: 640px) {
+
+  /* 3 columns, 3/12 in % */
+  .col-3 {
+    width: 25%;
+  }
+
+  /* 4 columns, 4/12 in % */
+  .col-4 {
+    width: 33.33%;
+    border: solid red 1px;
+  }
+
+  /* 6 columns, 6/12 in % */
+  .col-6 {
+    width: 50%;
+  }
+
+  /* 12 columns, 12/12 in % */
+  .col-12 {
+    width: 100%;
+  }
+}

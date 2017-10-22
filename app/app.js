@@ -1,15 +1,8 @@
 const searchURL = 'https://openapi.etsy.com/v2/listings/active.js';
-const cachedListings = {}; 
+const cachedListings = {};
 
-function searchListings(searchTerm, callback) {
-  	 const request = {
-        api_key: 'vz1sihltqyuz61jmee9p1qjf',
-        keywords: searchTerm,
-        limit: 25,
-        includes: 'Images,Shop',
-        callback: 'displaySearchData'
-  	}
-    let etsyURL = searchURL + `?includes=Images,Shop&keywords=${searchTerm}&limit=10&api_key=vz1sihltqyuz61jmee9p1qjf`; 
+function searchListings(searchTerm, callback, page) {
+    let etsyURL = searchURL + `?includes=Images,Shop&keywords=${searchTerm}&limit=25&offset=${page * 25}&api_key=vz1sihltqyuz61jmee9p1qjf`;
 
     $.ajax( {
       url: etsyURL,
@@ -18,64 +11,61 @@ function searchListings(searchTerm, callback) {
     }
     )
 
-};
+}
 
 function renderResult(result) {
-  // console.log(result.Images[0].url_170x135)
-  // console.log(result)
-  // let resultURL = `https://www.etsy.com/${}`
-
-  // if image is singular, then use the medium img url
-
-  // else if images are plural or duplicates, then use the first medium img url
-    //use .length or 0 for the first array in object
-    cachedListings[result.listing_id] = result 
+    cachedListings[result.listing_id] = result
+    const imageUrl = result && result.Images && result.Images[0] && result.Images[0].url_570xN;
 
     return `
-      <div>
-        <a class="img-results" href="${result.url}"><img alt="${result.title}" src="${result.Images[0].url_170x135}"></a>
-        <a class="img-title" href="${result.url}">${result.title}</a>
-        <button data-listingid="${result.listing_id}" class="compare-button" role="link" type="button">Compare</button>
-      </div>`
-};
-
-// maybe renderComparison can be added within renderResult
+      <div class="col-4">
+        <div class="result-listing">
+          <a class="img-results" href="${result.url}"><img class="listing-img" alt="${result.title}" src="${imageUrl}"></a>
+            <a class="img-title" href="${result.url}">${result.title}</a>
+            <button data-listingid="${result.listing_id}" class="compare-button" role="link" type="button">Compare</button>
+        </div>
+      </div>
+      `
+}
 
 function renderComparison(clickedId) {
   /*  when button is clicked  */
-
   let listing = cachedListings[clickedId];
+  const imageUrl = result && listing.Images && listing.Images[0] && listing.Images[0].url_570xN;
 
   return `
-    <div class="comparison-listing">
-      <a href="${listing.url}">${listing.title}</a>
-      <h2>${listing.price}</h2>
-      <button class="remove-button">Remove</button>
+    <div class="col-4">
+      <div class="comparison-listing">
+        <a class="img-results" href="${listing.url}"><img class="listing-img" alt="${listing.title}" src="${imageUrl}"></a>
+        <a href="${listing.url}">${listing.title}</a>
+        <h2>$${listing.price}</h2>
+        <button class="remove-button">Remove</button>
+      </div>
     </div>
-  `
-
-
-  //  populate div with image, title and price //
-
-  // price => ${result.price} //
+    `
 }
 
 function displaySearchData(data) {
   // console.log()
   let results = data.results.map((item, index) => renderResult(item));
+  $('.pages').removeClass("hidden");
   $('.js-search-results').html(results);
   console.log(cachedListings);
 }
 
 function initialize() {
+  let page = 0;
+  let request;
+
   $('.js-search-form').submit(event => {
     event.preventDefault();
+    page = 0;
     // console.log($(event.currentTarget));
     const searchTarget = $(event.currentTarget).find('.js-query');
-    const request = searchTarget.val();
+    request = searchTarget.val();
     // clear out the input
     searchTarget.val("");
-    searchListings(request, displaySearchData);
+    searchListings(request, displaySearchData, page);
   });
 
   $(`#js-search-results`).delegate(".compare-button", "click", function(event) {
@@ -83,16 +73,36 @@ function initialize() {
     const clickButton = $(this)
     const clickedId = clickButton.data(`listingid`)
 
-    $(`#compare`).append(renderComparison(clickedId)) 
+    $(`#compare`).append(renderComparison(clickedId))
 
   });
 
   $(`#compare`).delegate(".remove-button", "click", function(event) {
     const clickButton = $(this)
     const comparisonListing = clickButton.closest(".comparison-listing")
-
     comparisonListing.remove();
   })
+  // $(`#pages-button-prev`)
+  $(`#pages-button-next`).on("click", function(event) {
+    event.preventDefault();
+    searchListings(request, displaySearchData, ++page);
+    pageCounter(page);
+
+  })
+    $(`#pages-button-prev`).on("click", function(event) {
+      event.preventDefault();
+      if (page === 0) {
+        return;
+      }
+      searchListings(request, displaySearchData, --page);
+      pageCounter(page);
+    })
 }
 
 $(initialize);
+
+function pageCounter(page) {
+  // next clicked
+  $(`#pages-display`).text(page + 1)
+  console.log(page)
+}
