@@ -15,7 +15,7 @@ function searchListings(searchTerm, callback, page) {
 
 function renderResult(result) {
     cachedListings[result.listing_id] = result
-    const imageUrl = result && result.Images && result.Images[0] && result.Images[0].url_570xN;
+    const imageUrl = result && result.Images && result.Images[0] && result.Images[0].url_570xN
 
     return `
       <div class="col-4">
@@ -31,7 +31,7 @@ function renderResult(result) {
 function renderComparison(clickedId) {
   /*  when button is clicked  */
   let listing = cachedListings[clickedId];
-  const imageUrl = result && listing.Images && listing.Images[0] && listing.Images[0].url_570xN;
+  const imageUrl = listing && listing.Images && listing.Images[0] && listing.Images[0].url_570xN
 
   return `
     <div class="col-4">

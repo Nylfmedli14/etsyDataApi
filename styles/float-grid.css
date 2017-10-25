@@ -33,7 +33,7 @@
   /* 4 columns, 4/12 in % */
   .col-4 {
     width: 33.33%;
-    border: solid red 1px;
+    border:1px solig lightgrey;
   }
 
   /* 6 columns, 6/12 in % */

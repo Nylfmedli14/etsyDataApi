@@ -1,6 +1,6 @@
 body {
-  	font-family: 'Roboto', sans-serif;
-  	padding: 20px;
+	font-family: 'Roboto', sans-serif;
+	padding: 20px;
 	background: #f4f4f4;
 	font-size: 1em;
 	color: #252525;
@@ -50,6 +50,7 @@ nav, section {
 }
 
 .js-search-results {
+  	background: #eebb44;
     border: 1px solid #E5E5E5;
     display: flex;
     flex-wrap: wrap;
@@ -149,8 +150,26 @@ a {
   flex-direction: column;
 }
 
-.compare-button:hover,
+.comparison-listing {
+  background: #eb6d20;
+}
+
+.compare-button,
 .remove-button {
+  color: white;
+  transition: opacity 0.4s;
+  border-radius: 3px;
+}
+
+.compare-button:hover,
+.remove-button:hover {
   cursor: pointer;
-  /* transition */
+}
+
+.compare-button {
+  background: #15CD72;
+}
+
+.remove-button {
+  background: #d60000;
 }
