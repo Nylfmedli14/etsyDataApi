@@ -49,6 +49,11 @@ function displaySearchData(data) {
   // console.log()
   let results = data.results.map((item, index) => renderResult(item));
   $('.pages').removeClass("hidden");
+  const resultsHeader = document.getElementById('results-header');
+  console.log(resultsHeader);
+  if (!resultsHeader) {
+    $( '<h2 id="results-header">Results</h2>' ).insertBefore( ".js-search-results" );
+  }
   $('.js-search-results').html(results);
   console.log(cachedListings);
 }
@@ -62,9 +67,11 @@ function initialize() {
     page = 0;
     // console.log($(event.currentTarget));
     const searchTarget = $(event.currentTarget).find('.js-query');
+    const compareElement = $('#compare');
     request = searchTarget.val();
     // clear out the input
     searchTarget.val("");
+    compareElement.html("");
     searchListings(request, displaySearchData, page);
     pageCounter(page);
   });
