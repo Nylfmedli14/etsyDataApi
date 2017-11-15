@@ -21,8 +21,8 @@ function renderResult(result) {
       <div class="col-4">
         <div class="result-listing">
           <a class="img-results" href="${result.url}"><img class="listing-img" alt="${result.title}" src="${imageUrl}"></a>
-            <a class="img-title" href="${result.url}">${result.title}</a>
-            <button data-listingid="${result.listing_id}" class="compare-button" role="link" type="button">Compare</button>
+          <a class="img-title" href="${result.url}">${result.title}</a>
+          <button data-listingid="${result.listing_id}" class="compare-button" role="link" type="button">Compare</button>
         </div>
       </div>
       `
@@ -34,14 +34,14 @@ function renderComparison(clickedId) {
   const imageUrl = listing && listing.Images && listing.Images[0] && listing.Images[0].url_570xN
 
   return `
-    <div class="col-4">
       <div class="comparison-listing">
-        <a class="img-results" href="${listing.url}"><img class="listing-img" alt="${listing.title}" src="${imageUrl}"></a>
-        <a href="${listing.url}">${listing.title}</a>
-        <h2>$${listing.price}</h2>
-        <button class="remove-button">Remove</button>
+        <div class="result-listing">
+          <a class="img-results" href="${listing.url}"><img class="listing-img" alt="${listing.title}" src="${imageUrl}"></a>
+          <a href="${listing.url}">${listing.title}</a>
+          <h2>$${listing.price}</h2>
+          <button class="remove-button">Remove</button>
+        </div>
       </div>
-    </div>
     `
 }
 
@@ -66,6 +66,7 @@ function initialize() {
     // clear out the input
     searchTarget.val("");
     searchListings(request, displaySearchData, page);
+    pageCounter(page);
   });
 
   $(`#js-search-results`).delegate(".compare-button", "click", function(event) {

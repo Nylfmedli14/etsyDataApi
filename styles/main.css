@@ -1,36 +1,51 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	padding: 20px;
-	background: #f4f4f4;
+	/* old background #f4f4f4*/
+	background: #0E2431;
 	font-size: 1em;
 	color: #252525;
 }
 
+#particles-js {
+	height: 100vh;
+	width: 100%;
+	background-color: #0E2431;
+}
+
 header {
-	background-color: #eebb44;
+	/*old background-color #eebb44*/
+	background-color: #F9B248;
 	margin-bottom: 40px;
+	border-radius: 5px;
 	display: flex;
 }
 
 header img {
 	margin-top: 0.75em;
 	flex: 0;
-  	height: 50px;
-  	margin-left: 0.75em;
+	height: 50px;
+	margin-left: 0.75em;
 	border-radius: 25%;
 }
 
 header h1 {
 	margin-top: 0.5em;
+	color: #0E2431;
 	flex: 3;
+}
+
+.container {
+	display: block;
 }
 
 section {
 	width: 100%;
 	margin: auto;
 	overflow: auto;
-	background: #eebb44;
+	background: #F9B248;
 	padding: 15px;
+	border-radius: 5px;
 }
 
 nav, section {
@@ -43,15 +58,15 @@ nav, section {
 	  padding: 2px 6px 3px 6px;
 	  background-color: white;
 	  vertical-align: bottom;
-  	  display: inline-block;
+	  display: inline-block;
 	  border: 1px solid lightgrey;
-	  border-radius: 3px;
+	  border-radius: 5px;
 	  cursor: pointer;
 }
 
 .js-search-results {
-  	background: #eebb44;
-    border: 1px solid #E5E5E5;
+  	background: #F9B248;
+    border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -61,13 +76,13 @@ nav, section {
 }
 
 .js-search-form{
-	/*border: 1px solid red;*/
 	display: flex;
 }
 
 .js-query {
 	height: 35px;
 	flex-grow: 1;
+	margin-right: 10px;
 }
 
 h1, h2, form, .pages {
@@ -76,6 +91,8 @@ h1, h2, form, .pages {
 
 .img-title, .img-results {
 	display: block;
+	color: #0E2431;
+	text-align: center;
 }
 
 .pages-button-prev, .pages-button-next {
@@ -103,11 +120,18 @@ h1, h2, form, .pages {
   padding: 0 5px 0 8px;
 }
 
+main {
+	display: wrap;
+}
+
 .pages {
   display: inline-block; /* Tricky, this could start wrapping!  */
   font-size: 0;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
+	width: 100%;
+	background-color: #F9B248;
+	justify-content: center;
+	color: #0E2431;
+  border-radius: 5px;
 }
 
 .pages-button,
@@ -141,6 +165,7 @@ h1, h2, form, .pages {
 
 a {
   text-decoration: none;
+	color: #0E2431;
 }
 
 .result-listing,
@@ -148,17 +173,25 @@ a {
   display: flex;
   align-items: center;
   flex-direction: column;
+	background-color: #E8D5B7;
 }
 
 .comparison-listing {
-  background: #eb6d20;
+  background: #FC3A52;
+	border-radius: 5px;
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	padding: 20px;
 }
 
 .compare-button,
 .remove-button {
   color: white;
   transition: opacity 0.4s;
-  border-radius: 3px;
+  border-radius: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .compare-button:hover,
@@ -172,4 +205,19 @@ a {
 
 .remove-button {
   background: #d60000;
+}
+
+/* Non-mobile */
+@media only screen and (min-width: 640px) {
+	.compare {
+		display: flex;
+		flex-wrap: wrap;
+		/*justify-content: space-between;*/
+	}
+
+	.comparison-listing {
+	  background: #eb6d20;
+		max-width: 30%;
+		margin-right: 15px;
+	}
 }
