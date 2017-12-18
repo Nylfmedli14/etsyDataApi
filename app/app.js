@@ -2,7 +2,7 @@ const searchURL = 'https://openapi.etsy.com/v2/listings/active.js';
 const cachedListings = {};
 
 function searchListings(searchTerm, callback, page) {
-    const etsyURL = searchURL + `?includes=Images,Shop&keywords=${searchTerm}&limit=25&offset=${page * 25}&api_key=vz1sihltqyuz61jmee9p1qjf`;
+    const etsyURL = searchURL + `?includes=Images,Shop&keywords=${searchTerm}&limit=24&offset=${page * 25}&api_key=vz1sihltqyuz61jmee9p1qjf`;
 
     $.ajax( {
       url: etsyURL,
@@ -20,7 +20,9 @@ function renderResult(result) {
     return `
       <div class="col-4">
         <div class="result-listing">
+          <br>
           <a class="img-results" href="${result.url}"><img class="listing-img" alt="${result.title}" src="${imageUrl}"></a>
+          <br>
           <a class="img-title" href="${result.url}">${result.title}</a>
           <button data-listingid="${result.listing_id}" class="compare-button" role="link" type="button">Compare</button>
         </div>
@@ -36,9 +38,12 @@ function renderComparison(clickedId) {
   return `
       <div class="comparison-listing">
         <div class="result-listing">
+          <br>
           <a class="img-results" href="${listing.url}"><img class="listing-img" alt="${listing.title}" src="${imageUrl}"></a>
+          <br>
           <a href="${listing.url}">${listing.title}</a>
-          <h2>$${listing.price}</h2>
+          <br>
+          <a href="${listing.url}">$${listing.price}</a>
           <button class="remove-button">Remove</button>
         </div>
       </div>
