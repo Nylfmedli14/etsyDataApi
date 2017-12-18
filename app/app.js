@@ -24,6 +24,8 @@ function renderResult(result) {
           <a class="img-results" href="${result.url}"><img class="listing-img" alt="${result.title}" src="${imageUrl}"></a>
           <br>
           <a class="img-title" href="${result.url}">${result.title}</a>
+          <br>
+          <a href="${result.url}">$${result.price}</a>
           <button data-listingid="${result.listing_id}" class="compare-button" role="link" type="button">Compare</button>
         </div>
       </div>
@@ -43,7 +45,7 @@ function renderComparison(clickedId) {
           <br>
           <a href="${listing.url}">${listing.title}</a>
           <br>
-          <a href="${listing.url}">$${listing.price}</a>
+          <a href="${listing.url}">Faves: ${listing.num_favorers}</a>
           <button class="remove-button">Remove</button>
         </div>
       </div>
