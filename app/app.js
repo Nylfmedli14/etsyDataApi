@@ -2,7 +2,7 @@ const searchURL = 'https://openapi.etsy.com/v2/listings/active.js';
 const cachedListings = {};
 
 function searchListings(searchTerm, callback, page) {
-    let etsyURL = searchURL + `?includes=Images,Shop&keywords=${searchTerm}&limit=25&offset=${page * 25}&api_key=vz1sihltqyuz61jmee9p1qjf`;
+    const etsyURL = searchURL + `?includes=Images,Shop&keywords=${searchTerm}&limit=25&offset=${page * 25}&api_key=vz1sihltqyuz61jmee9p1qjf`;
 
     $.ajax( {
       url: etsyURL,
@@ -46,7 +46,6 @@ function renderComparison(clickedId) {
 }
 
 function displaySearchData(data) {
-  // console.log()
   let results = data.results.map((item, index) => renderResult(item));
   $('.pages').removeClass("hidden");
   const resultsHeader = document.getElementById('results-header');
@@ -65,7 +64,6 @@ function initialize() {
   $('.js-search-form').submit(event => {
     event.preventDefault();
     page = 0;
-    // console.log($(event.currentTarget));
     const searchTarget = $(event.currentTarget).find('.js-query');
     const compareElement = $('#compare');
     request = searchTarget.val();
@@ -77,7 +75,6 @@ function initialize() {
   });
 
   $(`#js-search-results`).delegate(".compare-button", "click", function(event) {
-    // console.log(event)
     const clickButton = $(this)
     const clickedId = clickButton.data(`listingid`)
 
@@ -88,9 +85,10 @@ function initialize() {
   $(`#compare`).delegate(".remove-button", "click", function(event) {
     const clickButton = $(this)
     const comparisonListing = clickButton.closest(".comparison-listing")
+
     comparisonListing.remove();
   })
-  // $(`#pages-button-prev`)
+
   $(`#pages-button-next`).on("click", function(event) {
     event.preventDefault();
     searchListings(request, displaySearchData, ++page);
@@ -110,7 +108,6 @@ function initialize() {
 $(initialize);
 
 function pageCounter(page) {
-  // next clicked
   $(`#pages-display`).text(page + 1)
   console.log(page)
 }

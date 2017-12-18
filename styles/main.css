@@ -1,7 +1,6 @@
 body {
 	font-family: 'Roboto', sans-serif;
 	padding: 20px;
-	/* old background #f4f4f4*/
 	background: #0E2431;
 	font-size: 1em;
 	color: #252525;
@@ -14,7 +13,6 @@ body {
 }
 
 header {
-	/*old background-color #eebb44*/
 	background-color: #F9B248;
 	margin-bottom: 40px;
 	border-radius: 5px;
@@ -69,6 +67,8 @@ nav, section {
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
 }
 
 .listing-img {
@@ -96,28 +96,27 @@ h1, h2, form, .pages {
 }
 
 .pages-button-prev, .pages-button-next {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .search-section .search-jobs {
-  display: block;
-  margin-bottom: 8px;
+	display: block;
+	margin-bottom: 8px;
 }
 
 .search-section .search-field {
-  display: inline-block;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  cursor: pointer;
+	display: inline-block;
+	border: 1px solid lightgrey;
+	border-radius: 3px;
+	cursor: pointer;
 }
 
 .search-section input {
-  /* Must be set due to specificity weirdness of inputs */
-  font-size: 16px;
-  font-weight: 500;
-  width: 400px;
-  height: 30px;
-  padding: 0 5px 0 8px;
+	font-size: 16px;
+	font-weight: 500;
+	width: 400px;
+	height: 30px;
+	padding: 0 5px 0 8px;
 }
 
 main {
@@ -125,59 +124,56 @@ main {
 }
 
 .pages {
-  display: inline-block; /* Tricky, this could start wrapping!  */
-  font-size: 0;
+	display: flex;
+	font-size: 0;
 	width: 100%;
 	background-color: #F9B248;
-	justify-content: center;
+	justify-content: space-around;
+	align-items: center;
 	color: #0E2431;
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
 .pages-button,
 .pages-display {
-  display: inline-block;
-  font-size: 16px;
-  padding: 8px 25px;
+	padding: 2px 6px 3px 6px;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	background-color: white;
+	display: inline-block;
+	font-size: 16px;
+	padding: 8px 25px;
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 
 .pages-button:hover {
     cursor: pointer;
 }
 
-.pages-button-prev:before {
-  content:"<";
-}
-
-.pages-button-next:after{
-  content:">";
-}
-
 .r-link {
-  font-size: 18px;
-  padding: 0 6px;
-  color: #666;
+	font-size: 18px;
+	padding: 0 6px;
+	color: #666;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 	color: #0E2431;
 }
 
 .result-listing,
 .comparison-listing {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 	background-color: #E8D5B7;
 }
 
 .comparison-listing {
-  background: #FC3A52;
+	background: #FC3A52;
 	border-radius: 5px;
 	display: flex;
 	flex-wrap: wrap;
@@ -187,24 +183,24 @@ a {
 
 .compare-button,
 .remove-button {
-  color: white;
-  transition: opacity 0.4s;
-  border-radius: 5px;
+	color: white;
+	transition: opacity 0.4s;
+	border-radius: 5px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
 .compare-button:hover,
 .remove-button:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .compare-button {
-  background: #15CD72;
+	background: #15CD72;
 }
 
 .remove-button {
-  background: #d60000;
+	background: #d60000;
 }
 
 /* Non-mobile */
@@ -212,11 +208,10 @@ a {
 	.compare {
 		display: flex;
 		flex-wrap: wrap;
-		/*justify-content: space-between;*/
 	}
 
 	.comparison-listing {
-	  background: #eb6d20;
+		background: #eb6d20;
 		max-width: 30%;
 		margin-right: 15px;
 	}
