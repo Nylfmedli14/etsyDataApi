@@ -2,7 +2,7 @@
 
 
 ![Screenshots](./pics/price-hound-index.png)
-![Screenshots](./pics/price-hound-beads.png)
+![Screenshots](./pics/price-hound-render-beads.png)
 ![Screenshots](./pics/price-hound-compare-beads.png)
 
 ## Introduction
@@ -14,8 +14,6 @@ Initial wireframes for the home page can be seen below.
 ![Initial Wireframes](./pics/wireframe.png)
 
 The app was designed to work on mobile as well as tablet and desktop from the outset.
-
-The splash has a nice particle.js configuration for users to distract themselves before searching. Click to conjure up more particles.
 
 ## Live Site
 You can access Price Hound at https://nylfmedli14.github.io/price-hound/
