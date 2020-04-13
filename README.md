@@ -16,7 +16,7 @@ Initial wireframes for the home page can be seen below.
 The app was designed to work on mobile as well as tablet and desktop from the outset.
 
 ## Live Site
-You can access Price Hound at https://nylfmedli14.github.io/price-hound/
+You can access Price Hound at https://iampno.github.io/price-hound/
 
 ## Technical
 * The front-end is built using HTML5, CSS3 and JavaScript using the Etsy Data Api (https://www.etsy.com/developers/documentation/getting_started/api_basics).
